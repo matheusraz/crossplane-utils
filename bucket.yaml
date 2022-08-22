@@ -1,0 +1,13 @@
+apiVersion: s3.aws.crossplane.io/v1beta1
+kind: Bucket
+metadata:
+  name: teste-bucket-runtimes-xablau
+spec:
+  deletionPolicy: Delete
+  forProvider:
+    acl: private
+    locationConstraint: us-east-1
+    paymentConfiguration:
+      payer: BucketOwner
+  providerConfigRef:
+    name: aws-provider

@@ -1,0 +1,14 @@
+apiVersion: pkg.crossplane.io/v1alpha1
+kind: ControllerConfig
+metadata:
+  annotations:
+    eks.amazonaws.com/role-arn: arn:aws:iam::{accountId}:role/crossplane-role
+  name: aws-provider
+spec:
+  args:
+  - --max-reconcile-rate=180
+  - --debug
+  podSecurityContext:
+    fsGroup: 2000
+  securityContext:
+    runAsUser: 0
